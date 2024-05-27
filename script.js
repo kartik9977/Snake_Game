@@ -237,7 +237,7 @@ function draw() {
     ctx.fill();
   }
 
-  ctx.fillStyle = "blue"; // Food color
+  ctx.fillStyle = "red"; // Food color
   ctx.fillRect(foodCell[0], foodCell[1], cell, cell);
 }
 
@@ -273,6 +273,9 @@ function update() {
       gameOver = true;
     }
   }
+  if(snakeCollision(newX, newY)){
+    gameOver = true;
+  }
   if (gameOver == true) {
     playCollisionSound();
     backgroundMusic.pause();
@@ -290,6 +293,15 @@ function update() {
   } else {
     snakeCells.shift();
   }
+}
+
+function snakeCollision(x, y) {
+  for (let cell of snakeCells) {
+    if (cell[0] === x && cell[1] === y) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function generateRandomCell() {
