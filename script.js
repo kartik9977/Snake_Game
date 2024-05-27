@@ -237,7 +237,7 @@ function draw() {
     ctx.fill();
   }
 
-  ctx.fillStyle = "red"; // Food color
+  ctx.fillStyle = "blue"; // Food color
   ctx.fillRect(foodCell[0], foodCell[1], cell, cell);
 }
 
